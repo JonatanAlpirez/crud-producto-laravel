@@ -15,7 +15,7 @@ use App\Http\Controllers\ProductoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 /* Route::get('/producto', function () {
@@ -24,5 +24,13 @@ Route::get('/', function () {
 
 Route::get('/producto/create', [ProductoController::class, 'create']); */
 
-Route::resource('producto', ProductoController::class);
+Route::resource('producto', ProductoController::class)->middleware(['auth']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\ProductoController::class, 'index'])->name('home');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', [App\Http\Controllers\ProductoController::class, 'index'])->name('home');
+});

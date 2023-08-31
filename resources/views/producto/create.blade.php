@@ -1,19 +1,19 @@
-Formulario de creación de un producto
-POST
-<form action="{{ url('/producto') }}" method="post">
-    @csrf
-    <label for="Name">Name:</label>
-    <input type="text" name="name" id="name"><br/>
+@extends('layouts.app')
 
-    <label for="Price">Price:</label>
-    <input type="text" name="price" id="price"><br/>
+@section('content')
+<div class="container">
+    <br>
+    <h1>Formulario de creación de un producto</h1>
+    <br>
+    <form action="{{ url('/producto') }}" method="post">
+        @csrf
+        @include('producto.form', ['modo'=> 'Crear'])
 
-    <label for="Status">Status:</label>
-    <input type="text" name="status" id="status"><br/>
-    
-    <label for="Stock">Stock:</label>
-    <input type="text" name="stock" id="stock"><br/>
+    </form>
 
-    <input type="submit" value="Submit">
+    <a href="{{ url('producto/') }}">
+            <button class="btn btn-secondary">Regresar</button>
+    </a>
 
-</form>
+@endsection
+</div>
