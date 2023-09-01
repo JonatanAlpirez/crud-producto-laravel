@@ -66,6 +66,9 @@ class ProductoController extends Controller
     {
         //
         $producto = Producto::findOrFail($id);
+
+        
+
         return view('producto.edit', compact('producto'));
     }
 
@@ -75,6 +78,18 @@ class ProductoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $campos = [
+            'name'=>'required|string|max:100',
+            'price'=>'required|string|max:100',
+            'status'=>'required|string|max:100',
+            'stock'=>'required|string|max:100'
+
+        ];
+
+        
+        $mensaje=['required'=>'El :attribute es requerido'];
+        $this->validate($request, $campos, $mensaje);
+
         $datosProducto =  request() -> except(['_token', '_method']);
         Producto::where('id','=',$id)->update($datosProducto);
 

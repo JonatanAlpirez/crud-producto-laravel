@@ -2,13 +2,17 @@
 
 @section('content')
 <div class="container">
-
-    @if(Session::has('mensaje'))
-    {{
-        Session::get('mensaje')
+   
+        @if(Session::has('mensaje'))
+            <div class="alert alert-secondary alert-dismissible" role="alert">
+                {{Session::get('mensaje')}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
     
-    }}
-    @endif
+        @endif
+    
+    
     <br>
     <h1>Lista de productos:</h1>
     <br>
