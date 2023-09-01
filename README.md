@@ -1,14 +1,7 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
+--
 # CRUD - Producto
 --
+
 ### CRUD 
 
 Funciones:
@@ -17,7 +10,7 @@ Funciones:
 - Actualizar productos
 - Eliminar
 
-Estas funciones se implementan en una Interfaz donde se aplicaron estilos simples desde Bootstrap. Esta interfaz muestra la lista de los datos de todos los productos (id, name, price, status stock) almacenados en una base de datos en un servidor Mysql. 
+Esta aplicación fue desarrollada con Laravel y sus funciones se implementan en una interfaz donde se aplicaron estilos simples con Bootstrap. Esta interfaz muestra la lista de los datos de todos los productos (id, name, price, status stock) almacenados en una base de datos en un servidor Mysql. Se pueden crear nuevos productos que se almacenaran en la base de datos,  también se puede editar los datos de productos existentes y borrar los registros.
 
 Para la ejecución de la aplicación es necesario tener instalado:
 - XAMPP (Apache + MariaDB + PHP + Perl)
@@ -25,7 +18,9 @@ Para la ejecución de la aplicación es necesario tener instalado:
 - Node y NPM
 - Git
 
+--
 ## Ejecutar aplicación 
+(los comandos se ejecutan desde la terminal del directorio del proyecto).
 
 - Desde el panel de control de XAMPP iniciar servidores Apache y Mysql 
 
@@ -35,8 +30,39 @@ Para la ejecución de la aplicación es necesario tener instalado:
 ```
 composer install
 ```
+```
+npm install
+```
 
+- Copiar archivo `.env`
+```
+cp .env.example .env
+```
+    - Asegurarse que en archivo .env se encuentre la siguiente configuración:
+```
+DB_DATABASE=producto
+```
 
+- Desde `localhost/phpmyadmin/` crear la base de datos `producto`
+
+- Generar application key:
+```
+php artisan key:generate
+```
+- Hacer las migraciones
+```
+php artisan migrate
+```
+- Correr Servidor
 ```
 php artisan serve
 ```
+```
+npm run dev
+```
+
+- La aplicación se ejecuta en la dirección:
+http://localhost:8000/
+
+
+

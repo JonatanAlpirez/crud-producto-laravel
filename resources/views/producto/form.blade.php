@@ -1,3 +1,4 @@
+    
     <label for="Name" class="form-label">Name:</label>
     <input type="text" name="name" value= "{{isset($producto->name)?$producto->name:''}}" id="name" class="form-control"><br/>
 
@@ -13,3 +14,16 @@
     
 
     <input type="submit" value="{{ $modo }} producto" class="btn btn-secondary">
+
+    @if(count($errors)>0)
+        <div class="alert alert-primary" role="alert">
+            <ul>
+                @foreach( $errors -> all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+
+            </ul>
+            
+        </div>
+        
+    @endif
