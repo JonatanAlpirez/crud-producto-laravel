@@ -54,7 +54,7 @@
                 @endforeach
             </tbody>
         </table>
-
+        {!! $productos->links()!!}
         <a href="{{ url('/producto') }}">
             <button class="btn btn-secondary">Actualizar</button>
         </a>
